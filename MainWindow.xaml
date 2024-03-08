@@ -1,0 +1,58 @@
+﻿<Window x:Class="CS2MinecraftMapOptimizer.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:CS2MinecraftMapOptimizer"
+        mc:Ignorable="d"
+        Title="CS2 Minecraft Map Optimizer" Height="780" Width="820">
+    <Grid Background="#FFA07963">
+        <TextBox x:Name="GameDirTextBox" HorizontalAlignment="Left" Margin="135,62,0,0" VerticalAlignment="Top" Width="655" Height="20"/>
+        <Button x:Name="GameDirButton" Content="Select game folder" HorizontalAlignment="Left" Margin="10,62,0,0" VerticalAlignment="Top" Width="120" Click="GameDirButton_Click"/>
+        <Button x:Name="VmapButton" Content="Select .vmap file" HorizontalAlignment="Left" Margin="10,113,0,0" VerticalAlignment="Top" Width="120" Click="VmapButton_Click"/>
+        <TextBox x:Name="VmapTextBox" HorizontalAlignment="Left" Margin="135,113,0,0" VerticalAlignment="Top" Width="655" Height="20"/>
+
+        <TabControl x:Name="AddOrRemoveOptiTabControl" Margin="0,190,0,0">
+            <TabItem x:Name="RemoveOptiTabItem" Header="REMOVE OPTIMIZATIONS FROM MAP">
+                <Grid Background="#FFA47459">
+                    <Label Content="STEP 4: Save map in Hammer and then close Hammer" HorizontalAlignment="Left" Margin="10,10,0,0" VerticalAlignment="Top" FontWeight="Bold"/>
+                    <Label Content="STEP 5: Perform optimization removal on map" HorizontalAlignment="Left" Margin="10,41,0,0" VerticalAlignment="Top" FontWeight="Bold"/>
+                    <Button x:Name="RemoveOptiButton" Content="Remove optimizations from map" HorizontalAlignment="Left" Margin="10,67,0,0" VerticalAlignment="Top" Height="30" Width="294" Click="RemoveOptiButton_Click"/>
+                    <Label Content="STEP 6: Open the map in Hammer again and delete the logic__auto named &quot;mc__opti&quot;" HorizontalAlignment="Left" Margin="10,102,0,0" VerticalAlignment="Top" FontWeight="Bold"/>
+                    <Label Content="Now you're done!" HorizontalAlignment="Left" Margin="10,146,0,0" VerticalAlignment="Top" FontWeight="Bold"/>
+                </Grid>
+            </TabItem>
+            <TabItem x:Name="AddOptiTabItem" Header="ADD OPTIMIZATIONS TO MAP">
+                <Grid Background="#FFA47459">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition/>
+                    </Grid.ColumnDefinitions>
+                    <Label Content="STEP 4: Enter the size of a full minecraft block in Hammer units" HorizontalAlignment="Left" Margin="10,10,0,0" VerticalAlignment="Top" FontWeight="Bold"/>
+                    <TextBox x:Name="MinecraftBlockSizeTextBox" HorizontalAlignment="Left" Margin="381,14,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="92"/>
+                    <Label Content="STEP 5: Choose whether ocean-adjacent blocks can get optimized" HorizontalAlignment="Left" Margin="10,41,0,0" VerticalAlignment="Top" FontWeight="Bold"/>
+                    <CheckBox x:Name="OceanOptiCheckBox" Content="Allow optimization of ocean-adjacent blocks" HorizontalAlignment="Left" Margin="22,72,0,0" VerticalAlignment="Top" IsChecked="False" Checked="CheckBox_Checked" Unchecked="CheckBox_Unchecked"/>
+                    <Label x:Name="OceanZCoordLabel" Content="STEP 5.1: Enter the Z coordinate of the ocean water surface" HorizontalAlignment="Left" Margin="10,92,0,0" VerticalAlignment="Top" FontWeight="Bold"/>
+                    <TextBox x:Name="OceanZCoordTextBox" HorizontalAlignment="Left" Margin="358,96,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="92"/>
+                    <Label Content="STEP 6: In Hammer, set a targetname for every func__breakable that's not an opaque full block (e.g. slabs, stairs, leaves, glass)." HorizontalAlignment="Left" Margin="10,123,0,0" VerticalAlignment="Top" FontWeight="Bold"/>
+                    <Label Content="Suggestion: Name them &quot;NotAnOpaqueFullBlock&quot;." HorizontalAlignment="Left" Margin="33,148,0,0" VerticalAlignment="Top"/>
+                    <Label Content="This program assumes that every func__breakable without a targetname is an opaque full block and treats them as such during optimization." HorizontalAlignment="Left" Margin="33,174,0,0" VerticalAlignment="Top"/>
+                    <Label Content="STEP 7: Save map in Hammer and then close Hammer" HorizontalAlignment="Left" Margin="10,205,0,0" VerticalAlignment="Top" FontWeight="Bold" AutomationProperties.IsRequiredForForm="True"/>
+                    <Label Content="STEP 8: Perform optimization addition on map" HorizontalAlignment="Left" Margin="10,236,0,0" VerticalAlignment="Top" FontWeight="Bold" AutomationProperties.IsRequiredForForm="True"/>
+                    <Button x:Name="AddOptiButton" Content="Add optimizations to map" HorizontalAlignment="Left" Margin="10,262,0,0" VerticalAlignment="Top" Height="30" Width="294" Click="AddOptiButton_Click"/>
+                    <Label Content="STEP 9: Open the map in Hammer again and create a logic__auto entity with the targetname &quot;mc__opti&quot;" HorizontalAlignment="Left" Margin="10,297,0,0" VerticalAlignment="Top" FontWeight="Bold" AutomationProperties.IsRequiredForForm="True"/>
+                    <Label Content="STEP 10: Copy the logic__auto outputs generated by this program into your clipboard" HorizontalAlignment="Left" Margin="10,328,0,0" VerticalAlignment="Top" FontWeight="Bold" AutomationProperties.IsRequiredForForm="True"/>
+                    <Button x:Name="CopyOutputsToClipboardButton" Content="Copy generated logic__auto outputs to clipboard" HorizontalAlignment="Left" Margin="10,354,0,0" VerticalAlignment="Top" Height="30" Width="294" Click="CopyOutputsToClipboardButton_Click"/>
+                    <Label Content="STEP 11: In the logic__auto's &quot;Outputs&quot; window, press the &quot;Paste&quot; button" HorizontalAlignment="Left" Margin="10,389,0,0" VerticalAlignment="Top" FontWeight="Bold" AutomationProperties.IsRequiredForForm="True"/>
+                    <Label Content="Now you're done!" HorizontalAlignment="Left" Margin="10,442,0,0" VerticalAlignment="Top" FontWeight="Bold"/>
+
+                </Grid>
+            </TabItem>
+        </TabControl>
+        <Label Content="Follow these instructions step by step." HorizontalAlignment="Left" Margin="10,10,0,0" VerticalAlignment="Top"/>
+        <Label Content="STEP 1: Select game folder (&quot;...\Counter-Strike Global Offensive\game\csgo\&quot;)" HorizontalAlignment="Left" Margin="10,36,0,0" VerticalAlignment="Top" FontWeight="Bold"/>
+        <Label Content="STEP 2: Select .vmap file of the map you want to optimize" HorizontalAlignment="Left" Margin="10,87,0,0" VerticalAlignment="Top" FontWeight="Bold"/>
+        <Label Content="STEP 3: Decide whether to remove optimizations from the map or add optimizations to it" HorizontalAlignment="Left" Margin="10,138,0,0" VerticalAlignment="Top" FontWeight="Bold"/>
+        <Label Content="Note: If the map had optimizations added previously, you need to remove them first before re-adding them again." HorizontalAlignment="Left" Margin="10,164,0,0" VerticalAlignment="Top" FontWeight="Bold"/>
+
+    </Grid>
+</Window>
