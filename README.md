@@ -8,8 +8,8 @@ This tool was an attempt to improve the game client's FPS by hiding some of the 
 It roughly achieves a 10 to 20 percent FPS improvement on the game client. Over 2000 out of ~8000 blocks get hidden in the current version of the map.
 
 <div class="row">
-    <img src='docs/demo-img-add-operation.png' width='300'>
-    <img src='docs/demo-img-remove-operation.png' width='300'>
+    <img src='docs/demo-img-add-operation.png' width='400'>
+    <img src='docs/demo-img-remove-operation.png' width='400'>
 </div>
 
 ### How
