@@ -2,7 +2,6 @@
 
 Made for [Lillykyu's Minecraft-themed Counter-Strike 2 map](https://steamcommunity.com/sharedfiles/filedetails/?id=3172495446). That map has over 8000 "blocks" (func_breakable entities) pushing the game engine to the limit.
 
-
 This tool was an attempt to improve the game client's FPS by hiding some of the inner blocks of the map that are obstructed by the outermost block layer.
 
 It roughly achieves a 10 to 20 percent FPS improvement on the game client. Over 2000 out of ~8000 blocks get hidden in the current version of the map.
@@ -14,7 +13,7 @@ It roughly achieves a 10 to 20 percent FPS improvement on the game client. Over 
 
 ### How
 
-A block gets hidden if all 6 of its neighbors are opaque, full blocks. Special case: Blocks on the ocean see the ocean as a a neighbor too.
+A block gets hidden if all 6 of its neighbors are opaque, full blocks. Special case: Blocks on the ocean see the ocean as a neighbor too.
 
 Once a hidden block's neighbor is destroyed, the hidden block is made visible.
 
