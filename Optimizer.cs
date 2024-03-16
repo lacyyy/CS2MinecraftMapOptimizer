@@ -18,6 +18,8 @@ namespace CS2MinecraftMapOptimizer
     public static class Optimizer
     {
         public const string NAME_PREFIX = "mc_opti_";
+        public const string NAME_WITH_WILDCARD = "mc_opti_*"; // Targets all entities with this name prefix
+
 
         // ---- DATA FROM _ADDING_ OPTIMIZATIONS TO THE MAP ----
 
@@ -634,25 +636,19 @@ namespace CS2MinecraftMapOptimizer
         {
             string connections = "";
 
-            foreach (MCBlock block in blocks)
-            {
-                if (!block.hiddenOnRoundStart)
-                    continue;
-
-                connections +=
-                    "\t\t{\r\n" +
-                    "\t\t\tsourceEntity = \"\"\r\n" +
-                    "\t\t\toutput = \"OnMapSpawn\"\r\n" +
-                    "\t\t\ttargetEntity = \"" + block.targetname + "\"\r\n" +
-                    "\t\t\tinput = \"Alpha\"\r\n" +
-                    "\t\t\tparam = \"0\"\r\n" +
-                    "\t\t\tioTargetType = \"ENTITY_IO_TARGET_ENTITYNAME_OR_CLASSNAME\"\r\n" +
-                    "\t\t\tdelay = 0.0\r\n" +
-                    "\t\t\ttimesToFire = -1\r\n" +
-                    "\t\t\trelayConnection = false\r\n" +
-                    "\t\t\tfromGlobalRelay = false\r\n" +
-                    "\t\t},\r\n";
-            }
+            connections +=
+                "\t\t{\r\n" +
+                "\t\t\tsourceEntity = \"\"\r\n" +
+                "\t\t\toutput = \"OnMapSpawn\"\r\n" +
+                "\t\t\ttargetEntity = \"" + NAME_WITH_WILDCARD + "\"\r\n" + // Target all hidden blocks (We generated a name for them)
+                "\t\t\tinput = \"Alpha\"\r\n" +
+                "\t\t\tparam = \"0\"\r\n" +
+                "\t\t\tioTargetType = \"ENTITY_IO_TARGET_ENTITYNAME_OR_CLASSNAME\"\r\n" +
+                "\t\t\tdelay = 0.0\r\n" +
+                "\t\t\ttimesToFire = -1\r\n" +
+                "\t\t\trelayConnection = false\r\n" +
+                "\t\t\tfromGlobalRelay = false\r\n" +
+                "\t\t},\r\n";
 
             string kv3_output =
                 "<!-- kv3 encoding:text:version{e21c7f3c-8a33-41c5-9977-a76d3a32aa0d} " +

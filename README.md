@@ -1,6 +1,6 @@
 ## CS2 Minecraft Map Optimizer
 
-Made for [Lillykyu's Minecraft-themed Counter-Strike 2 map](https://steamcommunity.com/sharedfiles/filedetails/?id=3172495446). That map has over 8000 "blocks" (func_breakable entities) pushing the game engine to the limit.
+Made for [Lillykyu's Minecraft-themed Counter-Strike 2 map](https://steamcommunity.com/sharedfiles/filedetails/?id=3186779271). That map has over 8000 "blocks" (func_breakable entities) pushing the game engine to the limit.
 
 This tool was an attempt to improve the game client's FPS by hiding some of the inner blocks of the map that are obstructed by the outermost block layer.
 
