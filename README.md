@@ -4,7 +4,7 @@ Made for [Lillykyu's Minecraft-themed Counter-Strike 2 map](https://steamcommuni
 
 This tool was an attempt to improve the game client's FPS by hiding some of the inner blocks of the map that are obstructed by the outermost block layer.
 
-It roughly achieves a 10 to 20 percent FPS improvement on the game client. Over 2000 out of ~8000 blocks get hidden in the current version of the map.
+It roughly achieves a 15 to 22 percent FPS improvement on the game client. Over 2570 out of ~8300 blocks get hidden in the current version of the map.
 
 <div class="row">
     <img src='docs/demo-img-add-operation.png' width='400'>
